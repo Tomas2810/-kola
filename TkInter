@@ -1,0 +1,31 @@
+import tkinter as ttk
+print(ttk.TkVersion)
+
+root = ttk.Tk()
+root.title("Main frame")
+root.geometry("1200x800")
+
+entry = ttk.Entry(root)
+entry.grid(pady = 0)
+
+def reakcia_tlacidla():
+    text = entry.get()
+    label.config(text =f"Priklad:, {text}, vysledok: {eval(text)}")
+
+btn1 = ttk.Button(root, text = "Potvrd vlozenie", command=reakcia_tlacidla )
+btn1.grid(column= 1, row= 0)
+btn2 = ttk.Button(root, text = "Potvrd vlozenie", command=reakcia_tlacidla )
+btn2.grid(column= 1, row= 1)
+btn3 = ttk.Button(root, text = "Potvrd vlozenie", command=reakcia_tlacidla )
+btn3.grid(column= 1, row= 2)
+btn4 = ttk.Button(root, text = "Potvrd vlozenie", command=reakcia_tlacidla )
+btn4.grid(column= 1, row= 3)
+btn5 = ttk.Button(root, text = "Potvrd vlozenie", command=reakcia_tlacidla )
+btn5.grid(column= 1, row= 4)
+btn6 = ttk.Button(root, text = "Potvrd vlozenie", command=reakcia_tlacidla )
+btn6.grid(column= 1, row= 5)
+
+label = ttk.Label(root, text = "")
+label.grid(pady = 10)
+
+root.mainloop()
