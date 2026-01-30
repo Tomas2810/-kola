@@ -1,0 +1,44 @@
+#data = [0, 4, 7, 5, "a"]
+
+#print(data)
+#print(f"dlzka: {len(data)}")
+
+#for i in range(0, len(data)):
+#    print(f"prvok na idx: {i} je položka: {data[i]}")
+
+#data.append("boronco")
+#data.remove(7)
+
+#for i in range(0, len(data)):
+#    print(f"prvok na idx: {i} je položka: {data[i]}")
+
+#for i in range(len(data)-1, 0, -1):
+#    print(f"prvok na idx: {i} je položka: {data[i]}")
+
+#print()
+
+#data1 = []
+#start = 0
+#end = 5
+#step = 1 
+#for i in range(start, end, step):
+#    data1.append(i)
+
+#rint(data1)    
+
+print()
+
+data2 = []
+start1 = 5-1
+end1 = 0-1
+step1 = -1 
+for i in range(start1, end1, step1):
+    data2.append(i)
+
+print(data2)   
+
+data3 = []
+for i in range(1, len(data2)+1, 1):
+    data3.append(data2[-i])
+
+print(data3) 
