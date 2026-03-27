@@ -1,0 +1,47 @@
+class Ziak:
+    def __init__(self,meno,priezvisko,vek, trieda, pohlavie):
+        self.meno = meno
+        self.priezvisko = priezvisko
+        self.vek = vek
+        self.trieda = trieda
+        self.pohlavie = pohlavie
+        self.prospech = {}
+
+    def get_meno(self):
+        return self.meno
+
+    def set_priezvisko(self, nove_priezvisko):
+        self.priezvisko = nove_priezvisko
+
+    def get_priezvisko(self):
+        return self.priezvisko
+
+    def get_vek(self):
+        return self.vek
+
+    def set_vek(self, novy_vek):
+        self.vek = novy_vek
+
+    def set_trieda(self, trieda):
+        self.trieda = trieda
+
+    def get_trieda(self):
+        return self.trieda
+
+    def get_pohlavie(self):
+        return self.pohlavie
+
+    def get_data(self):
+        print(f"Ziak:{self.meno} {self.priezvisko} ma {self.vek} rokov, je {"zena" if self.pohlavie==1 else "muz"}   a je v triede {self.trieda}")
+
+ziak1 = Ziak("Tomas", "Polak", 15, "1.AT", 0 )
+ziak1.get_data()
+
+ziak2 = Ziak("Kristina", "Kamenicka", 16, "1.AT", 1)
+ziak2.get_data()
+ziak2.set_priezvisko("Dolinarova")
+ziak2.get_data()
+
+ziak1.set_vek(18)
+ziak1.set_trieda("3.AT")
+ziak1.get_data()
