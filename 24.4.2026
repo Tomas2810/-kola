@@ -1,0 +1,27 @@
+#j = 0
+
+#for i in range(0,10):
+#    if i > 7:
+#        break
+#    if i % 2 == 1:
+#        print(f"{i} neparne")
+#    else:
+#        if j > 2:
+#            continue
+#        print(f"{i} parne")    
+#        j += 1
+
+
+i = -1 
+j = 0
+
+while i < 10:
+    i += 1
+    if i % 2 == 1:
+        print(f"neparne {i}")
+    else:
+        if j > 2:
+            continue
+        print(f"parne {i}")
+    if i > 7:
+        break
