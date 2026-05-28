@@ -1,0 +1,68 @@
+import random
+import time
+#count
+count = 1000
+#data = []
+
+#for i in range(0,count):
+#    data.append(random.randint(0,99))
+
+# O(n*n) = O(n2)
+def bubble_sort(_data):
+    n = len(_data)
+
+    for i in range(n):
+        for j in range(0,n-i-1):
+            if _data[j] > _data[j+1]:
+                temp = _data[j]
+                _data[j] = _data[j+1]
+                _data[j+1] = temp
+                #_data[j], _data[j+1] = _data[j+1], _data[j]
+
+    return _data
+
+# O()
+def qsort(_data):
+    if len(_data) <= 1:
+        return _data
+    pivot = _data[len(_data)//2]
+
+    smaller = [x for x in _data if x < pivot ]
+    bigger = [x for x in _data if x > pivot ]
+    same = [x for x in _data if x == pivot ]
+
+    return qsort(smaller) + same + qsort(bigger)
+
+def qsort1(_data):
+    if len(_data) <= 1:
+        return _data
+    pivot = _data[len(_data)//2]
+
+    smaller = [x for x in _data if x < pivot ]
+    bigger = [x for x in _data if x > pivot ]
+    same = [x for x in _data if x == pivot ]
+
+    return qsort1(bigger) + same + qsort1(smaller)
+
+
+
+data = [random.randint(0,99) for _ in range(count)]
+
+print(data)
+print("\n\n\n")
+
+start_time = time.perf_counter()
+
+data = qsort1(data)
+
+end_time = time.perf_counter()
+
+print()
+
+data = data[80:]
+data = data[:len(data)-80]
+
+
+
+#print(len(data))
+#print(data)
