@@ -1,0 +1,45 @@
+class Animal:
+    def __init__(self,name, weight, age, color):
+        self._name = name
+        self._weight = weight
+        self._age = age
+        self._color = color
+
+    def info(self):
+        print(
+            f"Meno: {self._name} \n"
+            f"Vaha: {self._weight} kg \n"
+            f"Vek: {self._age} rokov \n"
+            f"Farba: {self._color} \n"
+            )
+
+class Cat(Animal):
+    def __init__(self, name, weight, age, color, lives=9):
+        #zdedene atributy
+        super().__init__(name, weight, age, color)
+        #vlastny atribut
+        self._lives = lives
+
+    def info(self):
+        print("Mačka info:")
+        super().info()
+        print(f"Životy :{self._lives}")
+
+class Dog(Animal):
+     def __init__(self, name, weight, age, color, breed):
+        #zdedene atributy
+        super().__init__(name, weight, age, color)
+        #vlastny atribut
+        self._breed = breed
+
+        def info(self):
+            print("Pes info:")
+            super().info()
+            print(f"Plemeno :{self._breed}")
+
+#cat = Cat("Jonas",weight=10, age= 5, "cierna" , lives=4)
+cat = Cat("Jonas",10,5, "cierna" ,4)
+dog = Dog("Dunco", 15, 2, "biela", "Maltezak")
+cat.info()
+print("\n")
+dog.info()
