@@ -1,0 +1,100 @@
+
+from typing import override
+
+class GameCalc:
+    
+    @staticmethod
+    def count_critical_hit(base_damage ,chance):
+        if chance > 70:
+            return base_damage * 2
+        return base_damage
+
+class Hero:
+
+    def __init__(self, name, health, attack):
+        self.name = name # public
+        self._attack = attack  # protected
+        self.__health = health # private
+
+
+    @property
+    def health(self):
+        return self.__health
+
+
+    @health.setter
+    def health(self, value):
+        if value < 0:
+            self.__health = 0
+        else:
+            self.__health = value
+
+    def attack(self):
+        # Basic attack
+        return f"{self.name} utoci s poskodenim{self._attack}!"
+    
+class Warior(Hero):
+
+    def __init__(self, name, health, attack, armor):
+        super().__init__(name, health, attack)
+        self.armor = armor
+
+
+    @override
+    def attack(self):
+        final_damage = GameCalc.count_critical_hit(self._attack, chance = 80)
+        return f"Warior {self.name} seka mecom za {final_damage} bodov! (Brnenie: {self.armor})"
+
+
+class Wizzard(Hero):
+
+    def __init__(self, name, health, attack, mana):
+        super().__init__(name, health, attack)
+        self.mana = mana
+    
+    @override
+    def attack(self):
+        if self.mana > 10:
+            self.mana -=10
+            return f"Wizzard{self.name} zoslal ohnivu gulu! (Zostavajuca mana: {self.mana})"
+        return f"Wizzard {self.name} nema dost many, utoci palicou za {self.attack}!"
+    
+    def cast_spell(self,target, area=False ):
+        if area:
+            return f"Wizzard {self.name} zoslal plosne kuzlo na celu skupinu okolo targetu"
+        return f"Wizzard {self.name} zoslal kuzlo priamo na ciel:{target}"
+    
+# polymorfizmus
+def battle_talk(list_of_heroes):
+    print("\n--- Boj zacina! (Polymorfizmus) ---")
+    for hero in list_of_heroes:
+        print(hero.attack())
+
+if __name__ == "__main__":
+    # Zapuzdrenie - encapsulation
+    gerald = Warior("Gerald", health= 150, attack=25, armor=50)
+    gandalf = Wizzard("Gandalf", health=80, attack= 5, mana=30 )
+
+    # Pouzitie encapsulation a property
+    gerald.health = -20 #setter zachyti zapornu hodnotu a nastavi minimum
+    print(f"Geraldovo zdravie po zraneni:{gerald.health}")
+    #print(gerald.__health) # atribut je private - nemame priamy pristup
+
+    gerald.health = 100 # bojovnik je vylieceny
+    print(f"Geraldovo zdravie po vylieceni:{gerald.health}")
+
+    #pretazenie (overload)
+    print(gandalf.cast_spell("Skret"))
+    print(gandalf.cast_spell("Skret", area = True))
+
+    # vytvorime skupinu
+    group = [
+        gerald,
+        gandalf,
+        Hero("Dedko vecernicek", health= 20, attack= 2)
+    ]
+
+    battle_talk(group)
+
+
+
