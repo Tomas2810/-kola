@@ -1,0 +1,33 @@
+import tkinter as tk
+
+root = tk.Tk()
+root.title("E-Shop")
+root.geometry("1000x700")
+       
+class Produkt:
+    def __init__(self, nazov, cena):
+        self.nazov = nazov
+        self.cena = cena
+
+class Kniha(Produkt):
+    def __init__(self, nazov, cena, autor, pocetstran):
+        super().__init__(nazov, cena)
+        self.autor = autor
+        self.pocetstran = pocetstran
+
+class Elektronika(Produkt):
+    def __init__(self, nazov, cena, model, znacka):
+        super().__init__(nazov, cena,)
+        self.model = model
+        self.znacka = znacka
+
+class Potravina(Produkt):
+    def __init__(self, nazov, cena, hmotnost, krajinapovodu, datumspotreby):
+        super().__init__(nazov, cena,)
+        self.hmotnost = hmotnost
+        self.krajinapovodu = krajinapovodu
+        self.datumspotreby = datumspotreby
+
+
+
+root.mainloop()
